@@ -1,201 +1,505 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airox Digital Downloads</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap">
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            position: relative;
+        }
 
-   1. Definitions.
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+        .nav-links a:hover {
+            color: #f8c26a;
+        }
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+        .cart-icon .cart-count {
+            background-color: #f8c26a;
+            color: white;
+            font-size: 14px;
+            padding: 3px 8px;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?digital,technology') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #f8c26a;
+        }
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+        .btn {
+            background-color: #a569bd;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+        }
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+        .btn:hover {
+            background-color: #52be80;
+        }
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+        .product {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+        .product img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            height: auto;
+        }
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+        .product h2 {
+            font-size: 1.5rem;
+            color: #52be80;
+            margin-bottom: 10px;
+        }
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+        .product p {
+            font-size: 1.1rem;
+            color: #333;
+        }
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+        .add-to-cart {
+            background-color: #52be80;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+        .add-to-cart:hover {
+            background-color: #a569bd;
+        }
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+        .buy-now {
+            background-color: #f8c26a;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+        .buy-now:hover {
+            background-color: #52be80;
+        }
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+        .close:hover {
+            color: black;
+        }
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+        .payment-options {
+            margin-top: 20px;
+        }
 
-   END OF TERMS AND CONDITIONS
+        .payment-option {
+            background-color: #52be80;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            margin: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
 
-   APPENDIX: How to apply the Apache License to your work.
+        .payment-option:hover {
+            background-color: #a569bd;
+        }
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+        /* Search Bar */
+        .search-bar {
+            width: 300px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            display: block;
+        }
 
-   Copyright [yyyy] [name of copyright owner]
+        .search-bar:focus {
+            outline: none;
+            border-color: #f8c26a;
+        }
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+        /* Cart Page */
+        #cart-page {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+        }
 
-       http://www.apache.org/licenses/LICENSE-2.0
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+        .cart-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item button {
+            background-color: #f8c26a;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item button:hover {
+            background-color: #52be80;
+        }
+
+        #total-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Payment Pages */
+        .payment-page {
+            display: none;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .payment-page h1 {
+            color: #003087;
+        }
+
+        .payment-page button {
+            background-color: #003087;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .payment-page button:hover {
+            background-color: #001f5e;
+        }
+
+        .credit-card-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .credit-card-form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .credit-card-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .credit-card-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Airox Digital Downloads</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ebooks">E-books</a></li>
+                <li><a href="#cart-page">Cart</a></li>
+            </ul>
+            <div class="cart-icon" onclick="window.location.href='#cart-page'">
+                <span>🛒</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Welcome to Airox Digital</h1>
+        <p>Explore and download the best digital products for your needs.</p>
+        <a href="#ebooks" class="btn">Start Downloading</a>
+    </section>
+
+    <section id="ebooks">
+        <h2>E-book Collection</h2>
+        <input type="text" class="search-bar" placeholder="Search products..." oninput="filterProducts()">
+        <div class="products" id="product-list">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </section>
+
+    <!-- Modal for Payment -->
+    <div id="buyNowModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-product-name">Product Name</h2>
+            <p id="modal-price">Price: $0.00</p>
+            <div class="payment-options">
+                <button class="payment-option" onclick="showPaymentPage('credit-card')">Pay with Credit Card</button>
+                <button class="payment-option" onclick="showPaymentPage('paypal')">Pay with PayPal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <section id="cart-page">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div id="total-price"></div>
+        <button onclick="calculateTotal()" style="margin-top: 20px; padding: 10px 20px; background-color: #52be80; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Calculate Total
+        </button>
+    </section>
+
+    <!-- PayPal Payment Page -->
+    <section id="paypal-page" class="payment-page">
+        <div class="container">
+            <h1>Pay with PayPal</h1>
+            <p>You will be redirected to PayPal to complete your payment.</p>
+            <button onclick="processPayPalPayment()">Proceed to PayPal</button>
+        </div>
+    </section>
+
+    <!-- Credit Card Payment Page -->
+    <section id="credit-card-page" class="payment-page">
+        <div class="container">
+            <h1>Pay with Credit Card</h1>
+            <form class="credit-card-form" onsubmit="processCreditCardPayment(event)">
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="Expiration Date (MM/YY)" required>
+                <input type="text" placeholder="CVV" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Sample Product Data
+        const products = [
+            { name: "Mastering Python", price: 19.99, image: "https://source.unsplash.com/500x500/?ebook,technology" },
+            { name: "Web Development Guide", price: 29.99, image: "https://source.unsplash.com/500x500/?ebook,programming" },
+            { name: "Data Science Essentials", price: 39.99, image: "https://source.unsplash.com/500x500/?ebook,data" },
+        ];
+
+        let cart = [];
+        let cartCount = 0;
+
+        // Render Products
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = products.map(product => `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    <button class="buy-now" onclick="openModal('${product.name}', ${product.price})">Buy Now</button>
+                </div>
+            `).join('');
+        }
+
+        // Add to Cart
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+            renderCart();
+        }
+
+        // Render Cart
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = cart.map((item, index) => `
+                <li class="cart-item">
+                    ${item.name} - $${item.price.toFixed(2)}
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                </li>
+            `).join('');
+        }
+
+        // Remove from Cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            cartCount--;
+            document.getElementById('cart-count').textContent = cartCount;
+            renderCart();
+        }
+
+        // Calculate Total
+        function calculateTotal() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('total-price').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Open Modal
+        function openModal(productName, price) {
+            document.getElementById('modal-product-name').textContent = productName;
+            document.getElementById('modal-price').textContent = `Price: $${price.toFixed(2)}`;
+            document.getElementById('buyNowModal').style.display = "block";
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('buyNowModal').style.display = "none";
+        }
+
+        // Show Payment Page
+        function showPaymentPage(page) {
+            document.getElementById('buyNowModal').style.display = "none";
+            document.getElementById(`${page}-page`).style.display = "block";
+        }
+
+        // Process PayPal Payment
+        function processPayPalPayment() {
+            alert("Redirecting to PayPal...");
+            // Simulate a redirect to PayPal
+            window.location.href = "https://www.paypal.com";
+        }
+
+        // Process Credit Card Payment
+        function processCreditCardPayment(event) {
+            event.preventDefault();
+            alert("Payment Successful!");
+            // Simulate a successful payment
+            window.location.href = "index.html";
+        }
+
+        // Filter Products
+        function filterProducts() {
+            const searchTerm = document.querySelector('.search-bar').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+            renderProducts(filteredProducts);
+        }
+
+        // Initial Render
+        renderProducts();
+    </script>
+</body>
+</html>
